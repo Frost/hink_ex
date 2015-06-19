@@ -1,0 +1,9 @@
+use Mix.Config
+
+config :hink, :irc,
+  host: "chat.freenode.net",
+  port: 6667,
+  pass: "",
+  nick: "hinx",
+  user: "hinx",
+  name: "hinx"

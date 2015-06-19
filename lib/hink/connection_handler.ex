@@ -1,12 +1,6 @@
 defmodule Hink.ConnectionHandler do
 	defmodule State do
-		defstruct host: "efnet.port80.se",
-		          port: 6667,
-		          pass: "",
-		          nick: "hinx",
-		          user: "hinx",
-		          name: "hinx",
-		          client: nil
+		defstruct Keyword.put(Application.get_env(:hink, :irc), :client, nil)
 	end
 
 	def start_link(client, state \\ %State{}),
@@ -25,8 +19,6 @@ defmodule Hink.ConnectionHandler do
 	end
 
 	def handle_info(msg, state) do
-		debug "Received unknown message:"
-		IO.inspect(msg)
 		{:noreply, state}
 	end
 
