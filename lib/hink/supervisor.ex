@@ -2,10 +2,10 @@ defmodule Hink.Supervisor do
 	use Supervisor
 
 	def start_link do
-		Supervisor.start_link(__MODULE__, [])
+		Supervisor.start_link(__MODULE__, [], [name: Hink.Supervisor])
 	end
 
-	def init([]) do
+	def init(_opts) do
 		{:ok, client} = ExIrc.start_client!
 
 		children = [
@@ -14,7 +14,7 @@ defmodule Hink.Supervisor do
       worker(Hink.EchoHandler, [client])
 		]
 
-		opts = [strategy: :one_for_one, name: Hink.Supervisor]
+		opts = [strategy: :one_for_one]
 		supervise(children, opts)
 	end
 end
