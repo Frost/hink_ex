@@ -4,7 +4,7 @@ defmodule Hink.Mixfile do
   def project do
     [app: :hink,
      version: "0.0.1",
-     elixir: "~> 1.1-dev",
+     elixir: "~> 1.0",
      deps: deps]
   end
 
