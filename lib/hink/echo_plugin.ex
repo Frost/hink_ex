@@ -1,4 +1,4 @@
-defmodule Hink.EchoHandler do
+defmodule Hink.EchoPlugin do
 	require Logger
 	
 	def start_link(client),

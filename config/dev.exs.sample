@@ -7,3 +7,6 @@ config :hink, :irc,
   nick: "hinx",
   user: "hinx",
   name: "hinx"
+
+config :hink, :channels, []
+config :hink, :plugins, []
