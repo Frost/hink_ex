@@ -1,19 +1,19 @@
 defmodule Hink.Supervisor do
-	use Supervisor
+  use Supervisor
 
-	def start_link do
-		Supervisor.start_link(__MODULE__, [], [name: __MODULE__])
-	end
+  def start_link do
+    Supervisor.start_link(__MODULE__, [], [name: __MODULE__])
+  end
 
-	def init(_opts) do
-		{:ok, client} = ExIrc.start_client!
+  def init(_opts) do
+    {:ok, client} = ExIrc.start_client!
 
-		children = [
+    children = [
       worker(Hink.ConnectionHandler, [client]),
       worker(Hink.LoginHandler, [client, Application.get_env(:hink, :channels)]),
-			supervisor(Hink.PluginSupervisor, [client])]
+      supervisor(Hink.PluginSupervisor, [client])]
 
-		opts = [strategy: :one_for_one]
-		supervise(children, opts)
-	end
+    opts = [strategy: :one_for_one]
+    supervise(children, opts)
+  end
 end

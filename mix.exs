@@ -13,11 +13,11 @@ defmodule Hink.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [ mod: {Hink, []},
-			applications: [:logger, :exirc]]
+      applications: [:logger, :exirc]]
   end
 
   defp deps do
     [{:exirc, "~> 0.9.1"},
-		 {:ecto, "~> 0.11.0"}]
+     {:ecto, "~> 0.11.0"}]
   end
 end
