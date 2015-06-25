@@ -18,6 +18,8 @@ defmodule Hink.Mixfile do
 
   defp deps do
     [{:exirc, "~> 0.9.1"},
+     {:httpoison, "~> 0.7"},
+     {:floki, "~> 0.3.0"},
      {:ecto, "~> 0.11.0"}]
   end
 end
