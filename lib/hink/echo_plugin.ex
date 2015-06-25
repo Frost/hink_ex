@@ -2,7 +2,7 @@ defmodule Hink.EchoPlugin do
   require Logger
   
   def start_link(client),
-  do: GenServer.start_link(__MODULE__, [client])
+    do: GenServer.start_link(__MODULE__, [client])
   
   def init([client]) do
     ExIrc.Client.add_handler(client, self)
